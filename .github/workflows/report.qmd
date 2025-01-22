@@ -1,0 +1,25 @@
+---
+title: "report"
+format: html
+execute: 
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r}
+library(tidyverse)
+library(googlesheets4)
+library(gt)
+```
+
+Report last updated `r now()`.
+
+```{r}
+gs4_deauth()
+
+survey_data <- read_sheet("https://docs.google.com/spreadsheets/d/1G7o7EyCoPtvqjid09npwFxgHN4gkgWQmxQsf-J37Scs/edit?resourcekey=&gid=353882174#gid=353882174")
+
+survey_data %>%
+  gt()
+```
