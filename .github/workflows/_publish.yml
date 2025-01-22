@@ -23,6 +23,12 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v3
         
+      - name: List repository contents
+        run: ls -la
+        
+      - name: Render the Quarto project
+        run: quarto render
+
       - name: Render and Publish to Netlify
         uses: quarto-dev/quarto-actions/publish@v2
         with:
